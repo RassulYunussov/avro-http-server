@@ -1,0 +1,25 @@
+{"namespace": "org.example.avro",
+  "type": "record",
+  "name": "User",
+  "fields": [
+    {"name": "name", "type": "string"},
+    {"name": "favorite_number",  "type": ["int", "null"]},
+    {"name": "favorite_color", "type": ["string", "null"]},
+    {"name": "favorite_car", "type": {
+      "type":"record", "name":"FavoriteCar", "fields": [
+        {"name":  "name", "type":  "string"},
+        {"name":  "color", "type":  "string"}
+      ]}
+    },
+    {"name": "portfolio_list", "type": { "type":  "array", "items": {
+      "type":"record", "name":"Portfolio", "fields": [
+        {"name":  "company", "type":  "string"},
+        {"name":  "position", "type":  "string"},
+        {"name":  "years", "type":  "int"},
+        {"name":  "salary", "type":  "double"},
+        {"name":  "efficiency_score", "type":  "float"},
+        {"name": "responsibilities", "type":{ "type":"array","items" : "string" }}
+      ]}
+    }}
+  ]
+}
